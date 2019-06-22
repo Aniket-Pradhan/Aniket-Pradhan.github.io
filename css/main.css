@@ -2520,6 +2520,9 @@ footer .footer-social li {
 	margin: 0 12px;
 	padding: 0;
 }
+.footer-social li a:hover, .footer-social li a:focus {
+	color: #cc005f;
+}
 footer .footer-social li a {
 	color: #FFFFFF;
 }
