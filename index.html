@@ -1,64 +1,194 @@
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Aniket Pradhan</title>
-	<style type="text/css">
-		* {
-			font-family: monospace;
-			font-size: 14px;
-			max-width: 520px;
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Aniket Pradhan</title>
+		<style type="text/css">
+			:root {
+				--link-color: #000000;
+				--bg-color: #fff;
+				--text-color: #000000;
+			}
+			[data-theme="dark"] {
+				--bg-color: #161625;
+				--link-color: #FF5733;
+				--text-color: #FFFFFF;
+			}
+			* {
+				color: var(--text-color);
+				font-family: monospace;
+				font-size: 14px;
+				/* max-width: 520px; */
+			}
+			body {
+				background-color: var(--bg-color);
+			}
+			a {
+				color: var(--link-color);
+				font-weight: bold;
+				text-decoration: none;
+			} 
+			h1 {
+				color: --var(--text-color);
+				font-weight: normal;
+			}
+			tab {
+				display: inline-block; 
+				margin-left: 5px; 
+			}
+			@media only screen and (min-width: 360px) {
+				tab {
+					margin-left: 20px;
+				}
+			}
+			@media only screen and (min-width: 600px) {
+				tab {
+					margin-left: 20vw;
+				}
+			}
+			@media only screen and (min-width: 768px) {
+				tab {
+					margin-left: 30vw;
+				}
+			}
+
+			.theme-switch-wrapper {
+				float: right;
+				display: flex;
+				align-items: center;
+
+				/* em {
+					margin-left: 10px;
+					font-size: 1rem;
+				} */
+			}
+			.theme-switch {
+				display: inline-block;
+				height: 23px;
+				position: relative;
+				width: 35px;
+			}
+
+			.theme-switch input {
+				display:none;
+			}
+
+			.slider {
+				background-color: #ccc;
+				bottom: 0;
+				cursor: pointer;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transition: .4s;
+			}
+
+			.slider:before {
+				background-color: #fff;
+				bottom: 4px;
+				content: "";
+				height: 15px;
+				left: 4px;
+				position: absolute;
+				transition: .4s;
+				width: 15px;
+			}
+
+			input:checked + .slider {
+				background-color: #444444;
+			}
+
+			.slider.round:before {
+				background-color: #444444;
+			}
+
+			input:checked + .slider.round:before {
+				background-color: #FFFFFF;
+			}
+
+			input:checked + .slider:before {
+				transform: translateX(11px);
+			}
+
+			.slider.round {
+				border-radius: 15px;
+			}
+
+			.slider.round:before {
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="theme-switch-wrapper">
+		<label class="theme-switch" for="checkbox">
+			<input type="checkbox" id="checkbox" />
+			<div class="slider round"></div>
+		</label>
+		</div>
+		<div>
+			<h1>PRADHAN(1)<tab>User Commands<tab>PRADHAN(1)</h1>
+			<h2>NAME</h2>
+			<blockquote>
+			<p>Aniket_Pradhan - A Human Being</p>
+			</blockquote>
+			<h2>SYNOPSIS</h2>
+			<blockquote>
+			<p>
+				<b>major</b> [<b><u>OPTION</u></b>]... [<b><u>FILE</u></b>]...
+			</p>
+			</blockquote>
+			<h2>DESCRIPTION</h2>
+
+			<blockquote>
+				<p>Student @ Indraprastha Institute of Information Technology - Delhi.</p>
+				<p>I am interested in Linux stuff. I also maintain some packages over the <a href="https://aur.archlinux.org">AUR</a>, which also involves me contributing to some cool projects out there.</p>
+				<p>Interested in Python and a bit of Bio-Informatics</p>
+				<p>I no longer use <a href="https://archlinux.org/">Arch Linux</a>, BTW :P. It's Fedora time...</p>
+			</blockquote>
+
+			<h2>ALSO KNOWN AS</h2>
+			<blockquote>
+				<p>major, MeWjOr</p>
+			</blockquote>
+
+			<h2>COPYRIGHT</h2>
+			<blockquote>
+				<p>This poor imitation of a man page is not licensed under the GNU GPL version 3. Sourced from <a href="https://bpiotrowski.pl/">here</a></p>
+			</blockquote>
+
+			<h2>SEE ALSO</h2>
+			<blockquote>
+				<p><a href="mailto:aniketpradhan1999@gmail.com">e-mail</a>, <a href="documents/CV.pdf">CV</a>, <a href="blog_home.html">Blog</a></p>
+				<p><a href="https://github.com/Aniket-Pradhan">github</a>, <a href="https://aur.archlinux.org/account/major/">AUR</a>, <a href="documents/pubGPG">GPG Public Key</a></p>
+				<p><a href="https://www.linkedin.com/in/ap9989/">LinkedIn</a>, <a href="https://stackoverflow.com/users/8726146/major">Stack-Overflow</a></p>
+				<p><a href="https://www.facebook.com/aniket.pradhan.311">Facebook</a>, <a href="http://www.nooooooooooooooo.com/">Reddit</a></p>
+			</blockquote>
+		</div>
+	</body>
+	<script>
+	const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+	const currentTheme = localStorage.getItem('aniket_theme');
+
+	if (currentTheme) {
+		document.documentElement.setAttribute('data-theme', currentTheme);
+	
+		if (currentTheme === 'dark') {
+			toggleSwitch.checked = true;
 		}
-		a {
-			color: black;
-			font-weight: bold;
-			text-decoration: none;
-		} 
-		h1 {
-			font-weight: normal;
+	}
+
+	function switchTheme(e) {
+		if (e.target.checked) {
+			document.documentElement.setAttribute('data-theme', 'dark');
+			localStorage.setItem('aniket_theme', 'dark');
 		}
-		tab {
-			display: inline-block; 
-			margin-left: 90px; 
-		}
-	</style>
-</head>
-<body>
-	<div>
-	<h1>PRADHAN(1)<tab>User Commands<tab>PRADHAN(1)</h1>
-	<h2>NAME</h2>
-	<blockquote>
-	<p>Aniket_Pradhan - A Human Being</p>
-	</blockquote>
-	<h2>SYNOPSIS</h2>
-	<blockquote>
-	<p><b>major</b> [<b><u>OPTION</u></b>]... [<b><u>FILE</u></b>]...</p>
-	</blockquote>
-	<h2>DESCRIPTION</h2>
+		else {        document.documentElement.setAttribute('data-theme', 'light');
+			localStorage.setItem('aniket_theme', 'light');
+		}    
+	}
 
-	<blockquote>
-	<p>Student @ Indraprastha Institute of Information Technology - Delhi.</p>
-	<p>I am interested in Linux stuff. I also maintain some packages over the <a href="https://aur.archlinux.org">AUR</a>, which also involves me contributing to some cool projects out there.</p>
-	<p>Interested in Python and a bit of Bio-Informatics</p>
-	<p>I no longer use <a href="https://archlinux.org/">Arch Linux</a>, BTW :P. It's Fedora time...</p>
-	</blockquote>
-
-	<h2>ALSO KNOWN AS</h2>
-	<blockquote>
-	<p>major, MeWjOr</p>
-	</blockquote>
-
-	<h2>COPYRIGHT</h2>
-	<blockquote>
-	<p>This poor imitation of a man page is not licensed under the GNU GPL version 3. Sourced from <a href="https://bpiotrowski.pl/">here</a></p>
-
-	</blockquote>
-	<h2>SEE ALSO</h2>
-	<blockquote>
-	<p><a href="mailto:aniketpradhan1999@gmail.com">e-mail</a>, <a href="documents/CV.pdf">CV</a>, <a href="blog_home.html">Blog</a></p>
-	<p><a href="https://github.com/Aniket-Pradhan">github</a>, <a href="https://aur.archlinux.org/account/major/">AUR</a>, <a href="documents/pubGPG">GPG Public Key</a></p>
-	<p><a href="https://www.linkedin.com/in/ap9989/">LinkedIn</a>, <a href="https://stackoverflow.com/users/8726146/major">Stack-Overflow</a></p>
-	<p><a href="https://www.facebook.com/aniket.pradhan.311">Facebook</a>, <a href="http://www.nooooooooooooooo.com/">Reddit</a></p>
-	</blockquote>
-	</div>
+	toggleSwitch.addEventListener('change', switchTheme, false);
+	</script>
 </html>
